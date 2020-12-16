@@ -10,7 +10,10 @@ public MainMenu(int client) {
 	mvp_menu.AddItem("", "No Scope Player Sounds")
 	mvp_menu.AddItem("", "Premium Sounds")
 	
-	char string[30]
+	char string[30] 
+    
+	FormatEx(string, 30, "Volume: %f%", clinetVolume[client])
+	mvp_menu.AddItem("", string);  
 
 	FormatEx(string, 30, "%s Sunetele", soundsOn[client] ? "Dezactiveaza" : "Activeaza")
 	mvp_menu.AddItem("", string);  
@@ -27,7 +30,8 @@ public handlerMVP(Menu menu, MenuAction action, int client, int param) {
        		case 0: MVPCategori(client, 0)
        		case 1: NoScopeSounds(client, 0)
 			// case 2: PremiumSounds(client, 0)
-       		case 3: {
+            case 3: VolumeMenu(client)
+       		case 4: {
        			soundsOn[client] = !soundsOn[client]
        			MainMenu(client)
 

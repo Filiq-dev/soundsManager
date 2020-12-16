@@ -10,11 +10,11 @@ public void OnPluginStart() {
 	HookEvent("player_death", Event_PlayerDeath)  
 	
 	for (new i = MaxClients; i > 0; --i) {
-        if (!AreClientCookiesCached(i))
-            continue
-        
-        OnClientCookiesCached(i)
-    }
+		if (!AreClientCookiesCached(i))
+			continue
+		
+		OnClientCookiesCached(i)
+	}
 }
 
 public void OnConfigsExecuted() {
@@ -30,7 +30,7 @@ public void OnClientPutInServer(int client) {
 
 public void OnClientCookiesCached(int client) {
 	if(!IsValidClient(client) && IsFakeClient(client))	
-        return
+		return
 		
 	char scookie[1024]
 
@@ -57,5 +57,11 @@ public void OnClientCookiesCached(int client) {
 		strcopy(NameNSC[client], sizeof(NameNSC[]), scookie) 
 	}
 	else if(StrEqual(scookie,""))	Format(NameNSC[client], sizeof(NameNSC[]), "") 
+
+	GetClientCookie(client, CVolName, scookie, sizeof(scookie))
+	if(!StrEqual(scookie, "")) {
+		clinetVolume[client] = StringToFloat(scookie)
+	}
+	else if(StrEqual(scookie, "")) clinetVolume[client] = 1.0
 }
   

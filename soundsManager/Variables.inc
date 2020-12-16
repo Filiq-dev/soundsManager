@@ -13,7 +13,11 @@ char
 	NameNSC[MAXPLAYERS + 1][1024],
 	NameMVP[MAXPLAYERS + 1][1024]
 
+float
+    clinetVolume[MAXPLAYERS + 1]
+
 Handle 
 	CMvpName,
 	CSoundsOn,
-	CNscName
+	CNscName,
+    CVolName

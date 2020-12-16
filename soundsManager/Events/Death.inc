@@ -24,7 +24,7 @@ public Action Event_PlayerDeath(Handle event, const char[] name, bool dontBroadc
 							ClientCommand(p[i], "playgamesound Music.StopAllMusic")
 							ClientCommand(p[i], "playgamesound Music.StopAllMusic")
 							
-							EmitSoundToClient(p[i], sound, SOUND_FROM_PLAYER, SNDCHAN_STATIC, SNDLEVEL_NONE, _, 1.0) 
+							EmitSoundToClient(p[i], sound, SOUND_FROM_PLAYER, SNDCHAN_STATIC, SNDLEVEL_NONE, _, clinetVolume[p[i]]) 
 						}	
 					
 					} 
@@ -44,7 +44,7 @@ public Action Event_PlayerDeath(Handle event, const char[] name, bool dontBroadc
 						ClientCommand(p[i], "playgamesound Music.StopAllMusic")
 						ClientCommand(p[i], "playgamesound Music.StopAllMusic")
 						 
-						EmitSoundToClient(p[i], sound, SOUND_FROM_PLAYER, SNDCHAN_STATIC, SNDLEVEL_NONE, _, 1.0)
+						EmitSoundToClient(p[i], sound, SOUND_FROM_PLAYER, SNDCHAN_STATIC, SNDLEVEL_NONE, _, clinetVolume[p[i]])
 					}	
 				
 				} 
